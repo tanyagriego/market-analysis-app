@@ -1,5 +1,12 @@
 h1 {
   text-align: center;
+  color: green;
+  font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+
+h3 {
+  color: red;
+  font-family: 'Lora', serif;, sans-serif;
 }
 
 #image-container {
