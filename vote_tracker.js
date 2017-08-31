@@ -30,6 +30,7 @@ function addImage(imageObject) {
   container.appendChild(image);
 }
 
+
 function showImages() {
   var index = Math.floor(Math.random() * 14)
   addImage(imageNames[index]);
@@ -48,10 +49,15 @@ function showImages() {
 
 }
 
+function congratsAlert () {
+  alert("You Voted!");
+}
+
 function recordClick(event) {
   var imageSource = event.target.src;
   // imageNames this.tally +
   console.log("Image Clicked "+ imageSource);
 }
 
+document.getElementById('image-container').addEventListener("click", congratsAlert);
 window.addEventListener("load", showImages);
