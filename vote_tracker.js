@@ -49,15 +49,18 @@ function showImages() {
 
 }
 
-function congratsAlert () {
-  alert("You Voted!");
-}
+// function congratsAlert (event) {
+//   alert("You Voted!");
+//   var photoName = event.target.getElementById(image-container);
+//   alert("Awesome! You voted for " + photoName);
+// }
 
 function recordClick(event) {
   var imageSource = event.target.src;
+  alert("You voted for "+ imageSource)
   // imageNames this.tally +
-  console.log("Image Clicked "+ imageSource);
+  // console.log("Image Clicked "+ imageSource);
 }
 
-document.getElementById('image-container').addEventListener("click", congratsAlert);
+document.getElementById('image-container').addEventListener("click", recordClick);
 window.addEventListener("load", showImages);
