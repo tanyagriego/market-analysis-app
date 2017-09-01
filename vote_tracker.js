@@ -1,3 +1,5 @@
+var clickTotal = 0
+
 var ImageOption = function (name, tally) {
   this.name = name;
   this.tally = 0;
@@ -21,15 +23,8 @@ imageNames.push(new ImageOption("water_can"));
 imageNames.push(new ImageOption("wine_glass"));
 // console.log(imageNames);
 
-// var tableBody =
-// document.getElementById ("ImageOption-table");
-// for (var index = 0; index < ImageOption.length; index++) {
-//   ImageOption[index].recordClick ();
-//   tableBody.appendChild(ImageOption[index].getTableRowInfo());
-// }
 
-
-
+// Creates image for container for HTML
 function addImage(imageObject, index) {
   var container = document.getElementById ("image-container");
   var image = document.createElement("img");
@@ -41,8 +36,10 @@ function addImage(imageObject, index) {
   container.appendChild(image);
 }
 
-
+// Function to choose random images to display
 function showImages() {
+  document.getElementById('image-container').innerHTML = ""
+
   var index = Math.floor(Math.random() * 14)
   console.log(imageNames[index]);
   addImage("images/" + imageNames[index].fileName, index);
@@ -62,23 +59,21 @@ function showImages() {
 }
 
 
-
 function recordClick(event) {
-  alert("You voted! " + imageSource);
-  var imageSource = event.target.src;
+  // alert("You voted! " );
+  // var imageSource = event.target.src;
   // console.log(event);
   imageNames [event.target.dataset.index].tally++;
-  console.log(imageNames [event.target.dataset.index]);
-  // for (var index = 0; index < imageNames.length; index++) {
-  //   if (imageSource.indexOf(imageNames[index].imageSource) >= 0) {
-  //     imageNames[index].tally++;
-    // console.log("Image Clicked "+imageSource);
-    // }
-  // }
-  // alert("You voted for "+ imageSource)
-  // imageNames this.tally +
-  // console.log("Image Clicked "+ imageSource);
-}
+  clickTotal = clickTotal + 1;
+  if (clickTotal == 15) {
+    document.getElementById('image-container').innerHTML = ""
 
+  }
+    else {
+    showImages();
+
+  }
+  console.log(imageNames [event.target.dataset.index]);
+}
 
 window.addEventListener("load", showImages);
