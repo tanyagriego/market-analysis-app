@@ -5,7 +5,7 @@ var ImageOption = function (fileName, source) {
   this.voteCounter = function() {
     this.y++;
   }
-}
+} 
 
 imageNames = [];
 imageNames.push(new ImageOption("Bag", "bag.jpg"));
