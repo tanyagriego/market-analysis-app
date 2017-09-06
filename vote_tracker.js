@@ -68,10 +68,17 @@ function recordClick(event) {
     showImages();
   } else {
     showChart.render();
+    showChart.canvas.style.display = "block"
 
   }
 }
 
+function voteAgain () {
+  showChart.canvas.style.display = "none"
+  clickAmount = 0;
+  showImages();
+  recordClick(event);
+}
 var showChart = new CanvasJS.Chart("chartContainer", {
   animationEnabled: true,
   theme: "theme3",
