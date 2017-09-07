@@ -5,7 +5,7 @@ var ImageOption = function (fileName, source) {
   this.voteCounter = function() {
     this.y++;
   }
-} 
+}
 
 imageNames = [];
 imageNames.push(new ImageOption("Bag", "bag.jpg"));
@@ -68,17 +68,16 @@ function recordClick(event) {
     showImages();
   } else {
     showChart.render();
-    showChart.canvas.style.display = "block"
-
+    document.getElementById("chartContainer").style.visibility= "visible"
   }
 }
 
 function voteAgain () {
-  showChart.canvas.style.display = "none"
+  document.getElementById("chartContainer").style.visibility = "hidden"
   clickAmount = 0;
   showImages();
-  recordClick(event);
 }
+
 var showChart = new CanvasJS.Chart("chartContainer", {
   animationEnabled: true,
   theme: "theme3",
@@ -93,3 +92,4 @@ var showChart = new CanvasJS.Chart("chartContainer", {
   ]
 });
 window.addEventListener("load", showImages);
+document.getElementById('resetButton').addEventListener("click", voteAgain);
