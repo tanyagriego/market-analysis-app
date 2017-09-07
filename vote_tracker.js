@@ -68,12 +68,15 @@ function recordClick(event) {
     showImages();
   } else {
     showChart.render();
-    document.getElementById("chartContainer").style.visibility= "visible"
+    document.getElementById("chartContainer").style.visibility= "visible";
+    document.getElementById("resetButton").style.visibility= "visible";
+
   }
 }
 
 function voteAgain () {
-  document.getElementById("chartContainer").style.visibility = "hidden"
+  document.getElementById("chartContainer").style.visibility = "hidden";
+  document.getElementById("resetButton").style.visibility= "hidden";
   clickAmount = 0;
   showImages();
 }
@@ -90,6 +93,7 @@ var showChart = new CanvasJS.Chart("chartContainer", {
       dataPoints: imageNames
     }
   ]
+  // voteAgain();
 });
 window.addEventListener("load", showImages);
 document.getElementById('resetButton').addEventListener("click", voteAgain);

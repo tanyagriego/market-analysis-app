@@ -25,6 +25,10 @@ h3 {
 
 }
 
+#resetButton {
+  visibility: hidden;
+}
+
 body {
   background-color: #CC5500;
 }
