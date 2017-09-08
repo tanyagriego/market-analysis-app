@@ -70,14 +70,16 @@ function recordClick(event) {
     showChart.render();
     document.getElementById("chartContainer").style.visibility= "visible";
     document.getElementById("resetButton").style.visibility= "visible";
+    }
+    document.getElementById("progressBar").setAttribute("value",clickAmount);
 
-  }
 }
 
 function voteAgain () {
-  document.getElementById("chartContainer").style.visibility = "hidden";
-  document.getElementById("resetButton").style.visibility= "hidden";
   clickAmount = 0;
+  document.getElementById("chartContainer").style.visibility = "hidden";
+  document.getElementById("progressBar").setAttribute("value",clickAmount);
+  document.getElementById("resetButton").style.visibility= "hidden";
   showImages();
 }
 
