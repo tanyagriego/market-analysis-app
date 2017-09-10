@@ -71,8 +71,7 @@ function recordClick(event) {
     document.getElementById("resetButton").style.visibility= "visible";
     }
     document.getElementById("progressBar").setAttribute("value",clickAmount);
-
-
+    localStorage.setItem("ImageOption", showImages);
 }
 
 function voteAgain () {
