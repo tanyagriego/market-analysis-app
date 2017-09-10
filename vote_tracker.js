@@ -50,7 +50,6 @@ function showImages() {
     indexThree = Math.floor(Math.random() * imageNames.length)
   }
   addImage(imageNames[indexThree]);
-
 }
 
 var clickAmount = 0;
@@ -73,6 +72,7 @@ function recordClick(event) {
     }
     document.getElementById("progressBar").setAttribute("value",clickAmount);
 
+
 }
 
 function voteAgain () {
@@ -80,6 +80,7 @@ function voteAgain () {
   document.getElementById("chartContainer").style.visibility = "hidden";
   document.getElementById("progressBar").setAttribute("value",clickAmount);
   document.getElementById("resetButton").style.visibility= "hidden";
+
   showImages();
 }
 
