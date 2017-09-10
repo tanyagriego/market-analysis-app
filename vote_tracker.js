@@ -2,10 +2,7 @@ var ImageOption = function (fileName, source) {
   this.source = source;
   this.y = 0;
   this.label = fileName;
-  this.voteCounter = function() {
-    this.y++;
-  }
-}
+};
 
 imageNames = [];
 imageNames.push(new ImageOption("Bag", "bag.jpg"));
@@ -36,18 +33,18 @@ function addImage(imageObject, index) {
 
 // Function to choose random images to display
 function showImages() {
-  var index = Math.floor(Math.random() * imageNames.length)
+  var index = Math.floor(Math.random() * imageNames.length);
   addImage(imageNames[index]);
 
-  var indexTwo = Math.floor(Math.random() * imageNames.length)
+  var indexTwo = Math.floor(Math.random() * imageNames.length);
   while (index == indexTwo) {
-    indexTwo = Math.floor(Math.random() * imageNames.length)
+    indexTwo = Math.floor(Math.random() * imageNames.length);
   }
   addImage(imageNames[indexTwo]);
 
-  var indexThree = Math.floor(Math.random() * imageNames.length)
+  var indexThree = Math.floor(Math.random() * imageNames.length);
   while (indexTwo == indexThree || index == indexThree) {
-    indexThree = Math.floor(Math.random() * imageNames.length)
+    indexThree = Math.floor(Math.random() * imageNames.length);
   }
   addImage(imageNames[indexThree]);
 }
@@ -58,7 +55,7 @@ function recordClick(event) {
   var imageSourceSplit = imageSource.split("images/")[1];
   for (var index = 0; index < imageNames.length; index++) {
     if (imageSourceSplit == imageNames[index].source){
-      imageNames[index].voteCounter();
+      imageNames[index].y++;
     }
   }
   clickAmount += 1;
@@ -71,8 +68,7 @@ function recordClick(event) {
     document.getElementById("resetButton").style.visibility= "visible";
     }
     document.getElementById("progressBar").setAttribute("value",clickAmount);
-
-
+    localStorage.setItem("imageData", JSON.stringify(imageNames));
 }
 
 function voteAgain () {
@@ -81,6 +77,14 @@ function voteAgain () {
   document.getElementById("progressBar").setAttribute("value",clickAmount);
   document.getElementById("resetButton").style.visibility= "hidden";
 
+  showImages();
+}
+
+function loadData () {
+  if (localStorage.getItem("imageData") != null) {
+   imageNames = JSON.parse(localStorage.getItem("imageData"));
+   showChart.options.data[0].dataPoints = imageNames;
+  }
   showImages();
 }
 
@@ -98,5 +102,5 @@ var showChart = new CanvasJS.Chart("chartContainer", {
   ]
   // voteAgain();
 });
-window.addEventListener("load", showImages);
+window.addEventListener("load", loadData);
 document.getElementById('resetButton').addEventListener("click", voteAgain);
