@@ -79,10 +79,8 @@ function voteAgain () {
   document.getElementById("chartContainer").style.visibility = "hidden";
   document.getElementById("progressBar").setAttribute("value",clickAmount);
   document.getElementById("resetButton").style.visibility= "hidden";
-
   showImages();
 }
-
 var showChart = new CanvasJS.Chart("chartContainer", {
   animationEnabled: true,
   theme: "theme3",
