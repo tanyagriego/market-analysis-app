@@ -1,3 +1,6 @@
+@import "layout.css";
+@import "styles.css";
+
 h1 {
   text-align: center;
   color: teal;

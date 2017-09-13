@@ -1,0 +1,19 @@
+#image-container img:hover {
+  /*background-color: #aaffcc;*/
+  opacity: 0.5;
+   filter: alpha(opacity=50);
+}
+
+/*#image-container {
+  opacity: 1.0;
+  filter: alpha (opacity(100);
+}*/
+
+#image-container img:hover{
+  -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+}
