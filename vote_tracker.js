@@ -69,7 +69,11 @@ function recordClick(event) {
     showChart.render();
     document.getElementById("chartContainer").style.visibility= "visible";
     document.getElementById("resetButton").style.visibility= "visible";
-    }
+    document.getElementById("progressBar").style.display = "none";
+    document.getElementById("pOne").style.display = "none";
+    document.getElementById("pTwo").style.display = "none";
+    document.getElementById("yourVoteCounts").style.display = "none";
+  }
     document.getElementById("progressBar").setAttribute("value",clickAmount);
     localStorage.setItem("ImageOption", showImages);
 }
@@ -79,8 +83,14 @@ function voteAgain () {
   document.getElementById("chartContainer").style.visibility = "hidden";
   document.getElementById("progressBar").setAttribute("value",clickAmount);
   document.getElementById("resetButton").style.visibility= "hidden";
+  document.getElementById("progressBar").style.display = "block";
+  document.getElementById("pOne").style.display = "block";
+  document.getElementById("pTwo").style.display = "block";
+  document.getElementById("yourVoteCounts").style.display = "block";
+
   showImages();
 }
+
 var showChart = new CanvasJS.Chart("chartContainer", {
   animationEnabled: true,
   theme: "theme3",
